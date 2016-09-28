@@ -7,7 +7,7 @@ var TodoApp = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>TodoApp Component</h1>
+        <h1>TodoApp Components</h1>
         <Search/>
         <TodoList/>
         <AddTodo/>

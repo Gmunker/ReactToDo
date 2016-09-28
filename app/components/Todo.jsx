@@ -4,7 +4,7 @@ var Todo = React.createClass({
   render: function() {
     var {id, text} = this.props;
     return (
-      <h3>{id}. {text}</h3>
+      <h4>{id}. {text}</h4>
     )
   }
 });

@@ -5,8 +5,10 @@ var AddTodo = React.createClass({
     e.preventDefault();
 
     var addedTodo = this.refs.todoInput.value;
-    this.refs.todoInput.value = "";
-    this.props.onAddNewTodo(addedTodo);
+    if (addedTodo.length > 2) {
+      this.refs.todoInput.value = "";
+      this.props.onAddNewTodo(addedTodo);
+    }
   },
   render: function() {
     return (

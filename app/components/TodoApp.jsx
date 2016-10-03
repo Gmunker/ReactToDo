@@ -1,8 +1,7 @@
-var React = require('react');
-var AddTodo = require('AddTodo');
-var Search = require('Search');
-var TodoList = require('TodoList');
-var AddTodo = require('AddTodo');
+import React from 'react';
+import AddTodo from 'AddTodo';
+import Search from 'Search';
+import TodoList from 'TodoList';
 
 var TodoApp = React.createClass({
   getInitialState() {

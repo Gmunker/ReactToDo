@@ -1,8 +1,8 @@
-var React = require('react');
-var Todo = require('Todo');
+import React from 'react';
+import Todo from 'Todo';
 
 var TodoList = React.createClass({
-  render: function() {
+  render() {
     var {todos} = this.props;
     var renderTodos = () => {
       return todos.map((todo) => {

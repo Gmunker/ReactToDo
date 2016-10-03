@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
 var AddTodo = React.createClass({
-  handleSubmit: function(e) {
+  handleSubmit(e) {
     e.preventDefault();
 
     var addedTodo = this.refs.todoInput.value;
@@ -10,7 +10,7 @@ var AddTodo = React.createClass({
       this.props.onAddNewTodo(addedTodo);
     }
   },
-  render: function() {
+  render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

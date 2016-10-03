@@ -1,9 +1,27 @@
-var React = require('react');
+import React from 'react';
 
 var Search = React.createClass({
-  render: function() {
+  handleSearch() {
+    var showCompleted = this.refs.showCompleted.checked;
+    var searchText = this.refs.searchText.value;
+
+    this.props.onSearch(showCompleted, searchText);
+
+  },
+
+  render() {
     return (
-      <h1>Search Component</h1>
+      <div>
+        <div>
+          <input type="search" ref="searchText" placeholder="Search Todo's" onChange={this.handleSearch} />
+        </div>
+        <div>
+          <label>
+             <input type="checkbox" ref="showCompleted" onChange={this.handleSearch} />
+             Show Completed Todos
+          </label>
+        </div>
+      </div>
     )
   }
 });

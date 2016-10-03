@@ -18,7 +18,7 @@ var AddTodo = React.createClass({
           <button className="button primary">Submit</button>
         </form>
       </div>
-    )
+    );
   }
 });
 

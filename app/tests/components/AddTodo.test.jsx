@@ -14,7 +14,7 @@ describe('AddTodo', () => {
   it('should call onAddNewTodo if valid data is inputed', () => {
     var todoText = 'Walk the dog';
     var spy = expect.createSpy();
-    var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddNewTodo={spy}/>);
+    var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
     var $el = $(ReactDOM.findDOMNode(addTodo));
 
     addTodo.refs.todoInput.value = todoText;
@@ -26,7 +26,7 @@ describe('AddTodo', () => {
   it('should not call onAddNewTodo if no data is inputed', () => {
     var todoText = '';
     var spy = expect.createSpy();
-    var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddNewTodo={spy}/>);
+    var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
     var $el = $(ReactDOM.findDOMNode(addTodo));
 
     addTodo.refs.todoInput.value = todoText;

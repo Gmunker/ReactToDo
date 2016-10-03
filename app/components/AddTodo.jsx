@@ -4,10 +4,10 @@ var AddTodo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
 
-    var addedTodo = this.refs.todoInput.value;
-    if (addedTodo.length > 2) {
+    var todoText = this.refs.todoInput.value;
+    if (todoText.length > 0) {
       this.refs.todoInput.value = "";
-      this.props.onAddNewTodo(addedTodo);
+      this.props.onAddTodo(todoText);
     }
   },
   render() {

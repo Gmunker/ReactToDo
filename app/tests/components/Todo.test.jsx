@@ -24,8 +24,6 @@ describe('Todo', () => {
     TestUtils.Simulate.click($el[0]);
 
     expect(spy).toHaveBeenCalledWith(199);
-
-
   });
   
 });

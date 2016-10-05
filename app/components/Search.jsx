@@ -11,7 +11,7 @@ var Search = React.createClass({
 
   render() {
     return (
-      <div>
+      <div className="container__header">
         <div>
           <input type="search" ref="searchText" placeholder="Search Todo's" onChange={this.handleSearch} />
         </div>

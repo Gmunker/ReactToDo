@@ -1,5 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+const {Provider} = require('react-redux');
 const {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 const TodoApp = require('TodoApp');
@@ -22,6 +23,6 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-	<Router history={hashHistory}>
-	<Route path="/" component={TodoApp}></Route>
-</Router>, document.getElementById('app'));
+	<Provider store={store}>
+	<TodoApp/>
+</Provider>, document.getElementById('app'));

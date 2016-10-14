@@ -25,7 +25,7 @@ export let todosReducer = (state = "", action) => {
 			return [
 				...state, {
 					id: uuid(),
-					text: action.todoText,
+					text: action.text,
 					completed: false,
 					createdAt: moment().unix(),
 					completedAt: undefined

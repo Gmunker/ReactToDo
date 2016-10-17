@@ -4,31 +4,38 @@ import expect from 'expect';
 import $ from 'jQuery';
 import TestUtils from 'react-addons-test-utils';
 
-import Search from 'Search';
+import {Search} from 'Search';
 
 describe('Search', () => {
-  it('should exist', () => {
-    expect(Search).toExist();
-  });
+	it('should exist', () => {
+		expect(Search).toExist();
+	});
 
-  it('should call onSearch with entered input text', () => {
-    var searchText = "dog";
-    var spy = expect.createSpy();
-    var search = TestUtils.renderIntoDocument(<Search onSearch={spy}/>);
+	it('should dispatch setSearchText on input change', () => {
+		let searchText = "dog";
+		let action = {
+			type: 'SET_SEARCH_TEXT',
+			searchText
+		}
+		let spy = expect.createSpy();
+		let search = TestUtils.renderIntoDocument(<Search dispatch={spy}/>);
 
-    search.refs.searchText.value = searchText;
-    TestUtils.Simulate.change(search.refs.searchText);
+		search.refs.searchText.value = searchText;
+		TestUtils.Simulate.change(search.refs.searchText);
 
-    expect(spy).toHaveBeenCalledWith(false, 'dog');
-  });
+		expect(spy).toHaveBeenCalledWith(action);
+	});
 
-  it('should call onSearch with proper check value', () => {
-    var spy = expect.createSpy();
-    var search = TestUtils.renderIntoDocument(<Search onSearch={spy}/>);
+	it('should dispatch toggleShowCompleted when checkbox checked', () => {
+		let action = {
+			type: 'TOGGLE_SHOW_COMPLETED'
+		};
+		let spy = expect.createSpy();
+		let search = TestUtils.renderIntoDocument(<Search dispatch={spy}/>);
 
-    search.refs.showCompleted.checked = true;
-    TestUtils.Simulate.change(search.refs.searchText);
+		search.refs.showCompleted.checked = true;
+		TestUtils.Simulate.change(search.refs.showCompleted);
 
-    expect(spy).toHaveBeenCalledWith(true, '');
-  });
+		expect(spy).toHaveBeenCalledWith(action);
+	});
 });

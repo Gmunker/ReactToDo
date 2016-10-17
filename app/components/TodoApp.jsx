@@ -1,13 +1,13 @@
-const React = require('react');
-const uuid = require('node-uuid');
-const moment = require('moment');
+var React = require('react');
+var uuid = require('node-uuid');
+var moment = require('moment');
 
-const AddTodo = require('AddTodo');
-const Search = require('Search');
+import AddTodo from 'AddTodo';
 import TodoList from 'TodoList';
-const TodoAPI = require('TodoAPI');
+var Search = require('Search');
+var TodoAPI = require('TodoAPI');
 
-let TodoApp = React.createClass({
+var TodoApp = React.createClass({
 	getInitialState() {
 		return {showCompleted: false, searchText: "", todos: TodoAPI.getTodos()};
 	},
@@ -31,8 +31,8 @@ let TodoApp = React.createClass({
 		});
 	},
 	render() {
-		let {todos, showCompleted, searchText} = this.state;
-		let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+		var {todos, showCompleted, searchText} = this.state;
+		var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 		return (
 			<div>
 				<h1 className="page-title">Todo App</h1>

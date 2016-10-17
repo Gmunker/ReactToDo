@@ -1,4 +1,4 @@
-const React = require('react');
+import React from 'react';
 const {connect} = require('react-redux');
 const actions = require('actions');
 

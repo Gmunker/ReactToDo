@@ -7,7 +7,7 @@ const TodoApp = require('TodoApp');
 
 const actions = require('actions');
 const store = require('configureStore').configure();
-import TodoAPI from 'TodoAPI';
+const TodoAPI = require('TodoAPI');
 
 store.subscribe(() => {
 	let state = store.getState();

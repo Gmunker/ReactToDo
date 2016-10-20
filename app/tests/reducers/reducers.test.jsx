@@ -31,12 +31,17 @@ describe('Reducers', () => {
 		it('should add new todo', () => {
 			let action = {
 				type: 'ADD_TODO',
-				text: "Walk the Dog"
+				todo: {
+					id: "jdjd22",
+					text: "Something to test",
+					completed: false,
+					createdAt: 45454
+				}
 			};
 			let res = reducers.todosReducer(df([]), df(action));
 
 			expect(res.length).toEqual(1);
-			expect(res[0].text).toEqual(action.text);
+			expect(res[0]).toEqual(action.todo);
 		}); // Should add new todo
 
 		it('should toggle todo', () => {

@@ -91,9 +91,14 @@ describe('Actions', () => {
 		let testTodoRef;
 
 		beforeEach((done) => {
-			testTodoRef = firebaseRef.child('todos').push();
+			let todosRef = firebaseRef.child('todos');
 
-			testTodoRef.set({text: 'something to do', completed: false, createdAt: 123}).then(() => done());
+			todosRef.remove().then(() => {
+				testTodoRef = firebaseRef.child('todos').push();
+				return testTodoRef.set({text: 'something to do', completed: false, createdAt: 123})
+			})
+			.then(() => done())
+			.catch(done);
 		});
 
 		afterEach((done) => {
@@ -115,6 +120,21 @@ describe('Actions', () => {
 
 				done();
 			}, done);
-		});
-	});
-});
+		}); // it should toggleTodo..
+
+		it('should add todo to todos and dispatch ADD_TODOS', (done) => {
+			const store = createMockStore({});
+			const action = actions.startAddTodos();
+
+			store.dispatch(action).then(() => {
+				const mockActions = store.getActions();
+
+				expect(mockActions.length).toEqual(1);
+				expect(mockActions[0].type).toEqual('ADD_TODOS');
+				expect(mockActions[0].text).toEqual(testTodoRef.text);
+				done();
+			},done);
+		})// should add 1 todo to todos
+
+	});// Tests with firebade todos
+});// Actions

@@ -2,13 +2,12 @@ import firebase from 'firebase';
 
 try {
   let config = {
-      apiKey: "AIzaSyCGbF4zPTHKArku9Ozw8gYZJotfC2X9RMk",
-      authDomain: "gmunker-todoapp.firebaseapp.com",
-      databaseURL: "https://gmunker-todoapp.firebaseio.com",
-      storageBucket: "gmunker-todoapp.appspot.com",
-      messagingSenderId: "358670364679"
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.API_DOMAIN,
+      databaseURL: process.env.DATABASE_URL,
+      storageBucket: process.env.STORAGE_BUCKET
     };
-
+    
     firebase.initializeApp(config);
 } catch (e) {
 

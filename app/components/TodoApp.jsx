@@ -6,10 +6,13 @@ import AddTodo from 'AddTodo';
 import TodoList from 'TodoList';
 import Search from 'Search';
 
-var TodoApp = React.createClass({
+export let TodoApp = React.createClass({
 	render() {
 		return (
 			<div>
+				<div className="page-actions">
+					<a href="#">Logout</a>
+				</div>
 				<h1 className="page-title">Todo App</h1>
 				<div className="row">
 					<div className="column small-centered small-11 medium-6 large-5">
@@ -25,4 +28,4 @@ var TodoApp = React.createClass({
 	}
 });
 
-module.exports = TodoApp;
+export default TodoApp;

@@ -9,7 +9,7 @@ export let toggleShowCompleted = () => {
 	return {type: "TOGGLE_SHOW_COMPLETED"};
 };
 
-export let addTodo = (todo) => {
+export let addTodo = (todo) => { 
 	return {type: "ADD_TODO", todo};
 };
 

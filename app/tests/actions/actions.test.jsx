@@ -135,6 +135,28 @@ describe('Actions', () => {
 				done();
 			},done);
 		})// should add 1 todo to todos
-
 	});// Tests with firebade todos
+
+	describe('Tests with Auth', () => {
+		it('should generate login action object', () => {
+			const action = {
+				type: 'LOGIN',
+				uid: 123
+			};
+
+			const res = actions.login(action.uid);
+
+			expect(res).toEqual(action);
+		});// Generate login action
+
+		it('should generate logout action', () => {
+			const action = {
+				type: 'LOGOUT'
+			};
+
+			const res = actions.logout();
+
+			expect(res).toEqual(action);
+		})
+	});// Tests with Auth
 });// Actions

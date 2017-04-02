@@ -1,21 +1,12 @@
-const React = require('react');
+import React from 'react';
 const moment = require('moment');
 const {connect} = require('react-redux');
 const actions = require('actions');
 
 export class Todo extends React.Component {
 	render() {
-		let {
-			id,
-			text,
-			completed,
-			createdAt,
-			completedAt,
-			dispatch
-		} = this.props;
-		let todoClassName = completed
-			? 'todo todo-completed'
-			: 'todo';
+		let {id, text, completed, createdAt, completedAt, dispatch} = this.props;
+		let todoClassName = completed ? 'todo todo-completed' : 'todo';
 		let renderDate = () => {
 			let message = 'Created: ';
 			let timestamp = createdAt;
